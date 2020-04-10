@@ -1,0 +1,31 @@
+﻿@model Assessment5.Models.DishInfo
+
+@{
+    ViewData["Title"] = "Bring The Food You Love";
+}
+
+<h1>Volunteer</h1>
+
+<p>Help the team by bringing a dish</p>
+ViewData["errorMsg"]
+<form asp-controller="dish" asp-action="Add" method="post">
+
+    @Html.LabelFor(name => name.PersonName): @Html.EditorFor(name => name.PersonName, new { @class = "form-control-lg" }) <br>
+
+    @Html.LabelFor(phone => phone.PhoneNumber): <input asp-for="PhoneNumber" /> <br />
+
+    @Html.LabelFor(dishName => dishName.DishName): @Html.EditorFor(dishName => dishName.DishName, new { @class = "form-control-lg" }) <br>
+
+    @Html.LabelFor(dish => dish.DishDescription): @Html.EditorFor(dish => dish.DishDescription, new { @class = "form-control-lg" }) <br>
+
+    @Html.LabelFor(health => health.Selection)
+
+    <select asp-for="Selection">
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+    <br />
+
+    <input type="submit" value="Add Dish" />
+</form>
+

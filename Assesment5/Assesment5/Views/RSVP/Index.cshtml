@@ -1,0 +1,35 @@
+﻿@model Assessment5.Models.RSVPInfo
+
+@{
+    ViewData["Title"] = "Register Now";
+}
+
+<h1>RSVP</h1>
+
+<form asp-controller="rsvp" asp-action="takeinfo" method="post">
+
+    @Html.LabelFor(fName => fName.FName): @Html.EditorFor(fName => fName.FName, new { @class = "form-control-lg" }) <br>
+
+    @Html.LabelFor(lName => lName.LName): @Html.EditorFor(lName => lName.LName, new { @class = "form-control-lg" }) <br>
+
+    @Html.LabelFor(email => email.Email): <input asp-for="Email" /> <br />
+
+    @Html.LabelFor(attend => attend.Attend)
+
+    <select asp-for="Attend">
+        <option>Yes, Saturday</option>
+        <option>Yes, Sunday</option>
+        <option>No, I will not be attending</option>
+    </select>
+    <br />
+
+    @Html.LabelFor(guest => guest.Guest)
+    <select asp-for="Guest">
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+    <br />
+
+
+    <input type="submit" value="Submit" />
+</form>

@@ -1,0 +1,21 @@
+﻿@model Assessment5.Models.DishInfo
+@{
+    ViewData["Title"] = "EditDish";
+}
+
+<h1>EditDish</h1>
+
+<h1>Edit Product</h1>
+<form asp-controller="dish" asp-action="Edit" method="post">
+    @Html.LabelFor(name => name.DishName)
+    @Html.EditorFor(name => name.DishName)
+    <br />
+    @Html.LabelFor(dish => dish.DishDescription)
+    @Html.EditorFor(dish => dish.DishDescription)
+    <br />
+    @Html.LabelFor(dish => dish.Selection)<br />
+    @Html.TextAreaFor(m => m.Selection)
+    <br />
+
+    <input type="submit" value="Save Changes" class="btn btn-primary" />
+</form>

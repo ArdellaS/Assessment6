@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Bring The Food You Love";
+
+    List<DishInfo> Dishes = (List<DishInfo>)ViewData["Dishes"];
+}
+
+<h1>Volunteer</h1>
+
+<p> What we have so far:</p>
+
+@if (TempData["Msg"] != null)
+{
+    <p>@TempData["Msg"]</p>
+}
+
+@foreach (DishInfo dish in Dishes)
+{
+    <div>
+        @dish.PersonName - @dish.DishName(@dish.DishDescription)
+        <a href="/EditDish/@dish.DishId">Edit Dish</a>
+        <a href="/DeleteDish/@dish.DishId">Delete Dish</a>
+    </div>
+}
+
+<p> Would you like to <a href="/AddDish">add a dish</a></p>
+
+
